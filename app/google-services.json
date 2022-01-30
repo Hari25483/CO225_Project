@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "475988213452",
+    "firebase_url": "https://vue-js-teacher-student-default-rtdb.firebaseio.com",
+    "project_id": "vue-js-teacher-student",
+    "storage_bucket": "vue-js-teacher-student.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475988213452:android:ccc1dd1e71b4d913578c69",
+        "android_client_info": {
+          "package_name": "com.example.login_signup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475988213452-u3s1m7m7s60puonotcjqne1c90128e4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN4N4jrDNMwC3o4HruCr9xd9ljvcndSWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475988213452-u3s1m7m7s60puonotcjqne1c90128e4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
