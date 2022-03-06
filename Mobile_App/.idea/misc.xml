@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_fetch_crypto_data.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_select_crypto.xml" value="0.1" />
@@ -10,11 +11,6 @@
         <entry key="app/src/main/res/layout/crypto_select.xml" value="0.1" />
       </map>
     </option>
-  </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/content_select_crypto.xml" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_first.xml" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_second.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
