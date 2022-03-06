@@ -22,4 +22,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.717" />
 
+    <Button
+        android:id="@+id/select_auction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="192dp"
+        android:text="Select Auctions"
+        app:layout_constraintBottom_toTopOf="@+id/get_started"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
