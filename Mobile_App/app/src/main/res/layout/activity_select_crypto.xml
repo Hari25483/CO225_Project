@@ -26,7 +26,7 @@
         android:layout_marginStart="181dp"
         android:layout_marginTop="63dp"
         android:layout_marginEnd="172dp"
-        android:text="baseprice"
+        android:text="Hello"
         android:textColor="#5C2D2D"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
