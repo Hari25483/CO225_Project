@@ -1,10 +1,13 @@
 package com.example.login_signup;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,13 +20,18 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignIn extends AppCompatActivity {
 
     private EditText m_email,m_password;
+    boolean admin;
     private TextView m_signin_text;
     private Button m_signin;
     private FirebaseAuth m_Auth;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +66,18 @@ public class SignIn extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignIn.this,"Log In Successful!",Toast.LENGTH_SHORT).show();
+                                String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                boolean admin_check=check_admin_role(uid);
+                                System.out.println("Admin credentials:" +admin_check);
+                                System.out.println(admin_check);
+                                if (admin_check==true){
+                                    System.out.println("route to admin page");
+                                }
+                                else{
+                                    System.out.println("route to userpage");
+                                }
                                 startActivity(new Intent(SignIn.this,GetStarted.class));
+                                Toast.makeText(SignIn.this,"Log In Successful!",Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -79,5 +97,30 @@ public class SignIn extends AppCompatActivity {
         else{
             m_email.setError("Please Enter a correct email");
         }
+    }
+
+    private boolean check_admin_role(String uid) {
+        DocumentReference docRef = db.collection("Users").document(uid);
+        docRef.get().
+
+                addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task < DocumentSnapshot > task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                               admin= (boolean) document.getData().get("admin");
+                               System.out.println("role:" +admin);
+
+//                    Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                            } else {
+                                Log.d(TAG, "No such document");
+                            }
+                        } else {
+                            Log.d(TAG, "get failed with ", task.getException());
+                        }
+                    }
+                });
+        return admin;
     }
 }

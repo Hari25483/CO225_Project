@@ -49,7 +49,7 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l){
         String cryptocoin_name=adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(),price,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(adapterView.getContext(),price,Toast.LENGTH_SHORT).show();
         System.out.println(cryptocoin_name);
         new Thread(new Runnable() {
             @Override
