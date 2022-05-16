@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -19,8 +20,11 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class select_crypto extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    @Override
+    private TextView baseprice;
     protected void onCreate(Bundle savedInstanceState) {
+         baseprice=findViewById(R.id.baseprice);
+
+
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
         if (SDK_INT > 8)
         {
@@ -47,11 +51,6 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
         System.out.println(cryptocoin_name);
 
         try {
-            //Public API:
-            //https://www.metaweather.com/api/location/search/?query=<CITY>
-            //https://www.metaweather.com/api/location/44418/
-
-
             URL url = new URL("https://min-api.cryptocompare.com/data/pricemulti?fsyms="+cryptocoin_name+"&tsyms=USD&api_keyR=708ad7c2a133986474a2585a9a36faffa9248de78fd6a3bd6284f16d460f7055");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -93,8 +92,11 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
 
                 HashMap<String, Double> capitalCities = new HashMap<String, Double>();
 
-                capitalCities= (HashMap<String, Double>) countryData.get("BTC");
+                capitalCities= (HashMap<String, Double>) countryData.get(cryptocoin_name);
                 System.out.println(capitalCities.get("USD"));
+                String price= capitalCities.get("USD").toString();
+
+
 
 
             }

@@ -19,5 +19,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/baseprice"
+        android:layout_width="128dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="181dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="172dp"
+        android:text="baseprice"
+        android:textColor="#5C2D2D"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crypto_select"
+        app:layout_constraintVertical_bias="0.528" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
