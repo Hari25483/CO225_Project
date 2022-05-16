@@ -3,8 +3,8 @@
     <string name="button">Button</string>
     <string name="string_button" />
     <string-array name="Crypto">
-        <item>Bit Coin</item>
-        <item>Etherium</item>
+        <item>BTC</item>
+        <item>ETH</item>
         <item>Doge</item>
         <item>MLX</item>
     </string-array>
