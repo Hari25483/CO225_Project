@@ -113,18 +113,14 @@ public class SignIn extends AppCompatActivity {
 //                                System.out.println(admin_check);
                                 if (admin==true){
                                     System.out.println("route to admin page");
-                                    startActivity(new Intent(SignIn.this,createAuction.class));
                                 }
                                 else{
-                                    startActivity(new Intent(SignIn.this,availableAuctions.class));
                                     System.out.println("route to userpage");
                                 }
 
-
                                 startActivity(new Intent(SignIn.this,viewAuction.class));
 
-
-
+                        
 
                                 Toast.makeText(SignIn.this,"Log In Successful!",Toast.LENGTH_SHORT).show();
 
