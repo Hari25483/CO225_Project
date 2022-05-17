@@ -74,7 +74,23 @@ public class createAuction extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        System.out.println(documentReference.getId());
+                        String id=documentReference.getId();
+                        db.collection("Auctions").document(id).update("auction_id", id)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        System.out.println("DocumentSnapshot successfully updated!");
+//                                        Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        System.out.println("Error adding document"+ e);
+                                    }
+                                });
+
+
 
 //                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
                     }
