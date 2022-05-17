@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login_Signup">
+<<<<<<< Updated upstream
         <activity
             android:name=".auctionpage"
             android:exported="false" />
+=======
+>>>>>>> Stashed changes
         <activity
             android:name=".select_crypto"
             android:exported="false" />
