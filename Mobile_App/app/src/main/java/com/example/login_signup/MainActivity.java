@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         if (!email.isEmpty()) {
             HashMap<String, Object> map = new HashMap<>();
             map.put("email", email);
-//            map.put("title" , name);
+            map.put("admin" , false);
             map.put("uid", uid);
 
             db.collection("Users").document(uid).set(map)
