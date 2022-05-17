@@ -117,7 +117,11 @@ public class SignIn extends AppCompatActivity {
                                 else{
                                     System.out.println("route to userpage");
                                 }
+
                                 startActivity(new Intent(SignIn.this,createAuction.class));
+
+                        
+
                                 Toast.makeText(SignIn.this,"Log In Successful!",Toast.LENGTH_SHORT).show();
 
 //                    Log.d(TAG, "DocumentSnapshot data: " + document.getData());
