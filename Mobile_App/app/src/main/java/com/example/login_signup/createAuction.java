@@ -26,7 +26,6 @@ public class createAuction extends AppCompatActivity {
 
     private EditText auctionName, startDate,startTime, endDate, endTime ;
     private Button create;
-    private TextView next;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +39,7 @@ public class createAuction extends AppCompatActivity {
         endDate = (EditText)findViewById(R.id.editTextDate2);
         endTime = (EditText)findViewById(R.id.editTextTime2);
         create = (Button) findViewById(R.id.button);
-        next = findViewById(R.id.next);
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(createAuction.this, availableAuctions.class));
-            }
-        });
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
