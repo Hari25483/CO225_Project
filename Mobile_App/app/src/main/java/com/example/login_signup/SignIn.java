@@ -121,6 +121,9 @@ public class SignIn extends AppCompatActivity {
                                 }
 
 
+                                startActivity(new Intent(SignIn.this,viewAuction.class));
+
+
 
 
                                 Toast.makeText(SignIn.this,"Log In Successful!",Toast.LENGTH_SHORT).show();
