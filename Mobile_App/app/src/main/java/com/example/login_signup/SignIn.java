@@ -120,8 +120,12 @@ public class SignIn extends AppCompatActivity {
                                     System.out.println("route to userpage");
                                 }
 
+<<<<<<< HEAD
 
                                 startActivity(new Intent(SignIn.this,viewAuction.class));
+=======
+                                startActivity(new Intent(SignIn.this,createAuction.class));
+>>>>>>> parent of d8316f4 (added view auction UI)
 
 
 
