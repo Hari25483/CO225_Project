@@ -10,10 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login_Signup">
         <activity
-            android:name=".availableAuctions"
-            android:exported="false" />
-        <activity
-            android:name=".singleAuction"
+            android:name=".viewAuction"
             android:exported="false" />
         <activity
             android:name=".select_crypto"
