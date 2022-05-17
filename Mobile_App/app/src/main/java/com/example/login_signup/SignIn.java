@@ -64,20 +64,16 @@ public class SignIn extends AppCompatActivity {
             if (!password.isEmpty()){
                 m_Auth.signInWithEmailAndPassword(email,password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                boolean admin_check=check_admin_role(uid);
-                                System.out.println("Admin credentials:" +admin_check);
-                                System.out.println(admin_check);
-                                if (admin_check==true){
-                                    System.out.println("route to admin page");
-                                }
-                                else{
-                                    System.out.println("route to userpage");
-                                }
-                                startActivity(new Intent(SignIn.this,GetStarted.class));
-                                Toast.makeText(SignIn.this,"Log In Successful!",Toast.LENGTH_SHORT).show();
+                            public synchronized void onComplete(@NonNull Task<AuthResult> task) {
+//                                new Thread(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+                                        String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                        check_admin_role(uid);
+//                                    }
+//                                }).start();
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -99,18 +95,30 @@ public class SignIn extends AppCompatActivity {
         }
     }
 
-    private boolean check_admin_role(String uid) {
+    private synchronized void check_admin_role(String uid) {
         DocumentReference docRef = db.collection("Users").document(uid);
         docRef.get().
-
-                addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
                     @Override
-                    public void onComplete(@NonNull Task < DocumentSnapshot > task) {
+                    public synchronized void onComplete(@NonNull Task < DocumentSnapshot > task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
                                admin= (boolean) document.getData().get("admin");
                                System.out.println("role:" +admin);
+//                                boolean admin_check=check_admin_role(uid);
+//thuva@gmail.com
+//                                System.out.println(admin);
+                                System.out.println("Admin credentials:" +admin);
+//                                System.out.println(admin_check);
+                                if (admin==true){
+                                    System.out.println("route to admin page");
+                                }
+                                else{
+                                    System.out.println("route to userpage");
+                                }
+                                startActivity(new Intent(SignIn.this,GetStarted.class));
+                                Toast.makeText(SignIn.this,"Log In Successful!",Toast.LENGTH_SHORT).show();
 
 //                    Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                             } else {
@@ -121,6 +129,5 @@ public class SignIn extends AppCompatActivity {
                         }
                     }
                 });
-        return admin;
     }
 }
