@@ -28,6 +28,9 @@
             android:name=".createAuction"
             android:exported="false" />
         <activity
+            android:name=".viewAuction"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
