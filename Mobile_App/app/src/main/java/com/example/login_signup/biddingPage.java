@@ -26,6 +26,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class biddingPage extends AppCompatActivity {
 
     String auctionName = "Auction 1";
@@ -37,6 +47,8 @@ public class biddingPage extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     TextView textView_17;
     TextView textView_19;
+    String price,baseprice;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +57,7 @@ public class biddingPage extends AppCompatActivity {
         String auction_id=intent.getStringExtra("auction_id");
         System.out.println("Auction_ID: "+ auction_id);
         String cryptocoin_name=intent.getStringExtra("cryptocoin_name");
+        baseprice=get_crypto_base_price(cryptocoin_name);
         System.out.println("CryptoCoin_name_bidding page: "+ cryptocoin_name);
         String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
         setContentView(R.layout.activity_bidding_page);
@@ -58,7 +71,6 @@ public class biddingPage extends AppCompatActivity {
         TextView bidValue = (EditText)findViewById(R.id.editTextNumber15);
         Button create = (Button) findViewById(R.id.button4);
         get_data_from_firestore(auction_id,cryptocoin_name);
-
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,9 +117,9 @@ public class biddingPage extends AppCompatActivity {
                                 Log.d(TAG, "No such document");
 
                                 Map<String, Object> crypto_coin_data = new HashMap<>();
-                                crypto_coin_data.put("current_value", 0);
+                                crypto_coin_data.put("current_value",baseprice );
                                 crypto_coin_data.put("current_bidder_id", null);
-                                crypto_coin_data.put("initial_value",100.00 );
+                                crypto_coin_data.put("initial_value", baseprice);
 
                                 set_data_to_firestore(auction_id,cryptocoin_name,crypto_coin_data);
                                 get_data_from_firestore(auction_id,cryptocoin_name);
@@ -156,5 +168,59 @@ public class biddingPage extends AppCompatActivity {
 
     }
 
+    private String get_crypto_base_price(String cryptocurrency){
+                try {
+                    URL url = new URL("https://min-api.cryptocompare.com/data/pricemulti?fsyms="+cryptocurrency+"&tsyms=USD&api_keyR=708ad7c2a133986474a2585a9a36faffa9248de78fd6a3bd6284f16d460f7055");
+
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("GET");
+                    conn.connect();
+
+                    //Check if connect is made
+                    int responseCode = conn.getResponseCode();
+//                    thanu@gmail.com
+                    // 200 OK
+                    if (responseCode != 200) {
+                        throw new RuntimeException("HttpResponseCode: " + responseCode);
+                    } else {
+
+                        StringBuilder informationString = new StringBuilder();
+                        Scanner scanner = new Scanner(url.openStream());
+
+                        while (scanner.hasNext()) {
+                            informationString.append(scanner.nextLine());
+                        }
+                        //Close the scanner
+                        scanner.close();
+
+                        System.out.println("data :"+informationString);
+
+
+                        //JSON simple library Setup with Maven is used to convert strings to JSON
+//                JSONParser parse = new JSONParser();
+//                JSONArray dataObject = (JSONArray) parse.parse(String.valueOf(informationString));
+                        JSONParser parser = new JSONParser();
+                        Object obj  = parser.parse(String.valueOf(informationString));
+                        JSONArray array = new JSONArray();
+                        array.add(obj);
+
+                        //Get the first JSON object in the JSON array
+                        System.out.println(array.get(0));
+
+                        JSONObject countryData = (JSONObject) array.get(0);
+
+                        HashMap<String, Double> capitalCities = new HashMap<String, Double>();
+
+                        capitalCities= (HashMap<String, Double>) countryData.get(cryptocurrency);
+                        System.out.println(capitalCities.get("USD"));
+                        price= capitalCities.get("USD").toString();
+                        System.out.println(price);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+        return price;
+    }
 
 }
