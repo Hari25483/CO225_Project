@@ -51,13 +51,20 @@ public class createAuction extends AppCompatActivity {
                 String endTime1 =endTime.getText().toString();
 
                 System.out.println(auctionName1.toString());
-                System.out.println(startDate1.toString());
-                System.out.println(startTime1.toString());
-                System.out.println(endDate1.toString());
-                System.out.println(endTime1.toString());
+                System.out.println(startDate1);
+                System.out.println(startTime1);
+                System.out.println(endDate1);
+                System.out.println(endTime1);
+
 
                 String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 saveToFireStore(auctionName1,startDate1,startTime1,endDate1,endTime1,uid);
+                Intent intent = new Intent(createAuction.this,viewAuction.class);
+                intent.putExtra("start_date",startDate1);
+                intent.putExtra("start_time",startTime1);
+                intent.putExtra("end_time",endTime1);
+                intent.putExtra("end_date",endDate1);
+                startActivity(intent);
 
             }
         });}
