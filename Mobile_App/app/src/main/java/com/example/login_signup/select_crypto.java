@@ -35,9 +35,10 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
 
         Intent intent = getIntent();
         auctionHeading.setText(intent.getStringExtra("auctionHeading"));
-
-        System.out.println(intent.getStringExtra("time"));
-        System.out.println(intent.getStringExtra("date"));
+        String auction_id=intent.getStringExtra("auction_id");
+        System.out.println(auction_id);
+//        System.out.println(intent.getStringExtra("time"));
+//        System.out.println(intent.getStringExtra("date"));
 
 
         baseprice=findViewById(R.id.baseprice);

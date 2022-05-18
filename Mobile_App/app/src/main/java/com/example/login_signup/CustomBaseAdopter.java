@@ -16,6 +16,7 @@ public class CustomBaseAdopter extends BaseAdapter {
     List<String> auction = new ArrayList<String>();
     List<String> date = new ArrayList<String>();
     List<String> time = new ArrayList<String>();
+
     LayoutInflater inflater;
 
     public CustomBaseAdopter(Context ctx, List<String> auction, List<String> date, List<String> time){

@@ -29,6 +29,7 @@ public class availableAuctions extends AppCompatActivity {
     List<String> auction = new ArrayList<String>();
     List<String> date = new ArrayList<String>();
     List<String> time = new ArrayList<String>();
+    List<String> auction_id = new ArrayList<String>();
 
     //
 //    String auction[] = {"Auction 1", "Auction 2", "Auction 3"};
@@ -61,6 +62,7 @@ public class availableAuctions extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
+                                auction_id.add((String) document.getData().get("auction_id"));
                                 auction.add((String) document.getData().get("name"));
                                 date.add((String) document.getData().get("end_date"));
                                 time.add((String) document.getData().get("end_time"));
@@ -99,6 +101,7 @@ public class availableAuctions extends AppCompatActivity {
 //                startActivity(new Intent(availableAuctions.this,viewAuction.class));
                 Intent intent = new Intent(getApplicationContext(),biddingPage.class);
                 intent.putExtra("auctionHeading",auction.get(position));
+                intent.putExtra("auction_id",auction_id.get(position));
                 intent.putExtra("time",time.get(position));
                 intent.putExtra("date",date.get(position));
                 startActivity(intent);
