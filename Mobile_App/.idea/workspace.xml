@@ -10,19 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="375bea28-25d0-4dcd-b601-a92472ceddd1" name="Default Changelist" comment="changed the jar file for my computer">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle________________Downloads_json_simple_1_1_1_jar.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login_signup/selectCrypto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_crypto2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle________________Downloads_json_simple_1_1_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle_____________Downloads_json_simple_1_1_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/login_signup/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login_signup/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/login_signup/availableAuctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login_signup/availableAuctions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[22b0814a13057ece]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[42005418d47d542f]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -90,7 +93,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="memory.settings.postsync.last.time.stamp" value="1652796192509" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
@@ -102,6 +105,9 @@
   </component>
   <component name="RecentsManager">
     <key name="android.template.1426941866">
+      <recent name="com.example.login_signup" />
+    </key>
+    <key name="android.template.-1066401806">
       <recent name="com.example.login_signup" />
     </key>
     <key name="android.template.2075500519">
@@ -129,6 +135,8 @@
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
