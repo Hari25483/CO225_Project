@@ -49,10 +49,15 @@ public class SignIn extends AppCompatActivity {
         }
         });
         m_signin.setOnClickListener(new View.OnClickListener() {
+
         @Override
         public void onClick(View view) {
-            login_user();
-        }
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+                    login_user();
+                }
+//             }).start();}
     });
 }
     //Function to login
@@ -67,13 +72,13 @@ public class SignIn extends AppCompatActivity {
 
                             @Override
                             public synchronized void onComplete(@NonNull Task<AuthResult> task) {
-//                                new Thread(new Runnable() {
-//                                    @Override
-//                                    public void run() {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
                                         String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
                                         check_admin_role(uid);
-//                                    }
-//                                }).start();
+                                    }
+                                }).start();
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
