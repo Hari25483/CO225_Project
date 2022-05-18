@@ -16,6 +16,9 @@
             android:name=".availableAuctions"
             android:exported="false" />
         <activity
+            android:name=".biddingPage"
+            android:exported="false" />
+        <activity
             android:name=".singleAuction"
             android:exported="false" />
         <activity
