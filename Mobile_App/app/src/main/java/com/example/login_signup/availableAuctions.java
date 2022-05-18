@@ -2,7 +2,11 @@ package com.example.login_signup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class availableAuctions extends AppCompatActivity {
@@ -20,5 +24,17 @@ public class availableAuctions extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.CustomList);
         CustomBaseAdopter customBaseAdopter = new CustomBaseAdopter(getApplicationContext(), auction, time, date);
         listView.setAdapter(customBaseAdopter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("custom","item position" + position);
+//                startActivity(new Intent(availableAuctions.this,viewAuction.class));
+                Intent intent = new Intent(getApplicationContext(),selectCrypto.class);
+                intent.putExtra("auctionHeading",auction[position]);
+                intent.putExtra("time",time[position]);
+                intent.putExtra("date",date[position]);
+                startActivity(intent);
+            }
+        });
     }
 }
