@@ -113,7 +113,7 @@ public class SignIn extends AppCompatActivity {
 //                                System.out.println(admin_check);
                                 if (admin==true){
                                     System.out.println("route to admin page");
-                                    startActivity(new Intent(SignIn.this,createAuction.class));
+                                    startActivity(new Intent(SignIn.this,viewAuction.class));
                                 }
                                 else{
                                     startActivity(new Intent(SignIn.this,availableAuctions.class));
