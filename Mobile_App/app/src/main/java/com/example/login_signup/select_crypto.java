@@ -2,6 +2,7 @@ package com.example.login_signup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -22,9 +23,23 @@ import java.util.Scanner;
 public class select_crypto extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     public TextView baseprice;
     String price;
-
+    TextView auctionHeading;
+    TextView time;
+    TextView date;
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_crypto);
+        auctionHeading = findViewById(R.id.auctionHeading);
+        time = findViewById(R.id.time);
+        date = findViewById(R.id.date);
+
+        Intent intent = getIntent();
+        auctionHeading.setText(intent.getStringExtra("auctionHeading"));
+
+        System.out.println(intent.getStringExtra("time"));
+        System.out.println(intent.getStringExtra("date"));
+
+
         baseprice=findViewById(R.id.baseprice);
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
         if (SDK_INT > 8)
@@ -34,8 +49,6 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
             StrictMode.setThreadPolicy(policy);
 
         }
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_crypto);
 
         Spinner myspinner = (Spinner) findViewById(R.id.crypto_select);
         ArrayAdapter<String> myAdaptor =new ArrayAdapter<String>(select_crypto.this,

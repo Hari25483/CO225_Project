@@ -7,15 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomBaseAdopter extends BaseAdapter {
 
     Context context;
-    String auction[];
-    String date[];
-    String time[];
+    List<String> auction = new ArrayList<String>();
+    List<String> date = new ArrayList<String>();
+    List<String> time = new ArrayList<String>();
     LayoutInflater inflater;
 
-    public CustomBaseAdopter(Context ctx, String [] auction, String [] date, String [] time){
+    public CustomBaseAdopter(Context ctx, List<String> auction, List<String> date, List<String> time){
         this.context = ctx;
         this.auction = auction;
         this.date = date;
@@ -24,7 +27,7 @@ public class CustomBaseAdopter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return auction.length;
+        return auction.size();
     }
 
     @Override
@@ -43,9 +46,9 @@ public class CustomBaseAdopter extends BaseAdapter {
         TextView auction1 = (TextView) convertView.findViewById(R.id.auction);
         TextView date1 = (TextView) convertView.findViewById(R.id.date);
         TextView time1 = (TextView) convertView.findViewById(R.id.time);
-        auction1.setText(auction[position]);
-        time1.setText(time[position]);
-        date1.setText(date[position]);
+        auction1.setText(auction.get(position));
+        time1.setText(time.get(position));
+        date1.setText(date.get(position));
         return convertView;
     }
 }
