@@ -99,7 +99,7 @@ public class availableAuctions extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i("custom","item position" + position);
 //                startActivity(new Intent(availableAuctions.this,viewAuction.class));
-                Intent intent = new Intent(getApplicationContext(),biddingPage.class);
+                Intent intent = new Intent(getApplicationContext(),select_crypto.class);
                 intent.putExtra("auctionHeading",auction.get(position));
                 intent.putExtra("auction_id",auction_id.get(position));
                 intent.putExtra("time",time.get(position));

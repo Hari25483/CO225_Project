@@ -22,6 +22,12 @@ public class biddingPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        String auction_id=intent.getStringExtra("auction_id");
+        System.out.println("Auction_ID: "+ auction_id);
+        String cryptocoin_name=intent.getStringExtra("cryptocoin_name");
+        System.out.println("CryptoCoin_name_bidding page: "+ cryptocoin_name);
+
         setContentView(R.layout.activity_bidding_page);
 
         TextView textView_14 = findViewById(R.id.textView14);
