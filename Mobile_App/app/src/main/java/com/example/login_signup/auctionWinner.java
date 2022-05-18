@@ -2,23 +2,31 @@ package com.example.login_signup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-
 public class auctionWinner extends AppCompatActivity {
 
-    String winnerName = "Thulasiyan";
-    String  cryptoName = "Bitcoin";
-    int highestBid = 10000;
-    int initialValue = 2000;
+    String winnerName ;
+    String  cryptoName;
+    String highestBid ;
+    String initialValue;
+    String auction_id;
+    Button view_other_auctions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        view_other_auctions=(Button) findViewById(R.id.view_other_auctions_btn);
+        Intent intent = getIntent();
+        auction_id=intent.getStringExtra("auction_id");
+        cryptoName=intent.getStringExtra("crypto_name");
+        highestBid=intent.getStringExtra("current_value");
+        initialValue=intent.getStringExtra("initial_value");
+        winnerName=intent.getStringExtra("winner");
         setContentView(R.layout.activity_auction_winner);
 
         TextView winnername = findViewById(R.id.textView21);
@@ -30,15 +38,14 @@ public class auctionWinner extends AppCompatActivity {
         TextView initialBidVal = findViewById(R.id.textView23);
         initialBidVal.setText("Initial Value "+initialValue+" $");
 
-        Button create = (Button) findViewById(R.id.button5);
-
-
-        create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("I'm going to bid in other auctions");
-
-            }
-        });
+//        view_other_auctions.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                System.out.println("I'm going to bid in other auctions");
+//                Intent intent = new Intent(auctionWinner.this,finished_currency.class);
+//                startActivity(intent);
+//
+//            }
+//        });
     }
 }

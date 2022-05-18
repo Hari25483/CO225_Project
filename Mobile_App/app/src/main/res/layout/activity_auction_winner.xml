@@ -88,7 +88,7 @@
         app:layout_constraintVertical_bias="0.621" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/view_other_auctions_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Other auctions"

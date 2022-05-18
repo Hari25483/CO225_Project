@@ -6,14 +6,17 @@
         <entry key="app/src/main/res/drawable/buttonshape_signup.xml" value="0.154" />
         <entry key="app/src/main/res/drawable/edit_shape_text.xml" value="0.154" />
         <entry key="app/src/main/res/layout/activity_auction_winner.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/activity_available_auctions.xml" value="0.22871376811594202" />
+        <entry key="app/src/main/res/layout/activity_available_auctions.xml" value="0.26639534770578577" />
         <entry key="app/src/main/res/layout/activity_bidding_page.xml" value="0.22871376811594202" />
         <entry key="app/src/main/res/layout/activity_create_auction.xml" value="0.18931159420289856" />
+        <entry key="app/src/main/res/layout/activity_finished_auctions.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_finished_currency.xml" value="0.14387031408308004" />
         <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_select_crypto.xml" value="0.21985931396484376" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_single_auction.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_single_coin.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_view_auction.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/availableAuctions.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/crypto_select.xml" value="0.1" />

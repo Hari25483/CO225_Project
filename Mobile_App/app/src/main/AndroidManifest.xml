@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login_Signup">
         <activity
+            android:name=".finished_currency"
+            android:exported="false" />
+        <activity
+            android:name=".Finished_Auctions"
+            android:exported="false" />
+        <activity
             android:name=".selectCrypto"
             android:exported="false" />
         <activity

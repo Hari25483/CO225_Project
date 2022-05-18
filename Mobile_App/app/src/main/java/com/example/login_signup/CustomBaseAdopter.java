@@ -44,7 +44,7 @@ public class CustomBaseAdopter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.activity_single_auction,null);
-        TextView auction1 = (TextView) convertView.findViewById(R.id.auction);
+        TextView auction1 = (TextView) convertView.findViewById(R.id.coin1);
         TextView date1 = (TextView) convertView.findViewById(R.id.date);
         TextView time1 = (TextView) convertView.findViewById(R.id.time);
         auction1.setText(auction.get(position));
