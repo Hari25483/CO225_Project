@@ -115,7 +115,12 @@ public class biddingPage extends AppCompatActivity {
 
                             } else {
                                 Log.d(TAG, "No such document");
-
+//                                try {
+//                                    Thread.sleep(1000);
+//                                }
+//                                catch (Exception e){
+//                                    System.out.println(e);
+//                                }
                                 Map<String, Object> crypto_coin_data = new HashMap<>();
                                 crypto_coin_data.put("current_value",baseprice );
                                 crypto_coin_data.put("current_bidder_id", null);
@@ -169,6 +174,9 @@ public class biddingPage extends AppCompatActivity {
     }
 
     private String get_crypto_base_price(String cryptocurrency){
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
                 try {
                     URL url = new URL("https://min-api.cryptocompare.com/data/pricemulti?fsyms="+cryptocurrency+"&tsyms=USD&api_keyR=708ad7c2a133986474a2585a9a36faffa9248de78fd6a3bd6284f16d460f7055");
 
@@ -219,8 +227,9 @@ public class biddingPage extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+//            }
+//        }).start();
 
         return price;
     }
-
 }
