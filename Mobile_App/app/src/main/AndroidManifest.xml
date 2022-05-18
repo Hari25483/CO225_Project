@@ -13,6 +13,9 @@
             android:name=".selectCrypto"
             android:exported="false" />
         <activity
+            android:name=".auctionWinner"
+            android:exported="false" />
+        <activity
             android:name=".availableAuctions"
             android:exported="false" />
         <activity

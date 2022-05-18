@@ -40,15 +40,17 @@ public class biddingPage extends AppCompatActivity {
 
     String auctionName = "Auction 1";
     String crypto = "Bitcoin";
-    int initialVal = 750;
-    int current_bid = initialVal;
+    int initialVal;
+    Float current_bid ;
+    Float current_bid_temp;
     String initialVal1;
     String current_bid1;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     TextView textView_17;
     TextView textView_19;
     String price,baseprice;
-
+    TextView textView_26;
+    Integer current_bid2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,19 +79,30 @@ public class biddingPage extends AppCompatActivity {
             public void onClick(View view) {
 
 
-
+                get_data_from_firestore(auction_id,cryptocoin_name);
                 String biddingValue = bidValue.getText().toString();
-                current_bid = Integer.parseInt(biddingValue);
-
-                Map<String, Object> bidding_data= new HashMap<>();
-                bidding_data.put("current_value", current_bid);
-                bidding_data.put("current_bidder_id",uid );
-                bidding_data.put("initial_value",initialVal );
-                update_data_to_firestore(auction_id,cryptocoin_name,bidding_data);
-                TextView textView_17 = findViewById(R.id.textView17);
-                textView_17.setText(String.valueOf(current_bid));
-                System.out.println(current_bid);
-                //startActivity(new Intent(biddingPage.this,biddingPage.class));
+                current_bid_temp = Float.parseFloat(biddingValue);
+                System.out.println("CBT"+current_bid_temp);
+                System.out.println("INVA"+initialVal1);
+                System.out.println("CBT1"+current_bid1);
+                if ((current_bid_temp >Float.parseFloat(String.valueOf(initialVal1)))&&(current_bid_temp >Float.parseFloat(current_bid1))) {
+                    current_bid=current_bid_temp;
+                    Map<String, Object> bidding_data = new HashMap<>();
+                    bidding_data.put("current_value", current_bid);
+                    bidding_data.put("current_bidder_id", uid);
+//                    bidding_data.put("initial_value", initialVal);
+                    update_data_to_firestore(auction_id, cryptocoin_name, bidding_data);
+                    TextView textView_17 = findViewById(R.id.textView17);
+                    textView_17.setText(String.valueOf(current_bid));
+                    System.out.println(current_bid);
+                    textView_26 = findViewById(R.id.textView26);
+                    textView_26.setText("Good luck......");
+                }
+                else{
+                    System.out.println("Incorrect bid value");
+                    textView_26 = findViewById(R.id.textView26);
+                    textView_26.setText("Bid More......");
+                }
             }
         });
 
@@ -108,6 +121,7 @@ public class biddingPage extends AppCompatActivity {
 
                                 initialVal1 = document.getData().get("initial_value").toString();
                                 current_bid1 = document.getData().get("current_value").toString();
+//                                current_bid2=Integer.parseInt((String) document.getData().get("current_value"));
                                 System.out.println(initialVal1);
                                 System.out.println(current_bid1);
                                 textView_17.setText(String.valueOf(current_bid1));
