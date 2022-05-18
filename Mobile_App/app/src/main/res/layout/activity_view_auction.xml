@@ -54,11 +54,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/start_time"
         app:layout_constraintVertical_bias="0.072" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/start_date"
         android:layout_width="161dp"
         android:layout_height="48dp"
         android:textSize="30dp"
@@ -69,7 +69,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/end_date"
         android:layout_width="161dp"
         android:layout_height="48dp"
         android:textSize="30dp"
@@ -85,10 +85,10 @@
         android:layout_height="28dp"
         android:text="at"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintEnd_toStartOf="@+id/start_time"
         app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/start_date"
         app:layout_constraintVertical_bias="0.05" />
 
     <TextView
@@ -97,14 +97,14 @@
         android:layout_height="28dp"
         android:text="at"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintEnd_toStartOf="@+id/start_time"
         app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/end_date"
         app:layout_constraintVertical_bias="0.156" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/start_time"
         android:layout_width="117dp"
         android:layout_height="43dp"
         android:textSize="20sp"
@@ -112,11 +112,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/start_date"
         app:layout_constraintVertical_bias="0.051" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/end_time"
         android:layout_width="117dp"
         android:layout_height="43dp"
         android:textSize="20sp"
@@ -124,27 +124,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/end_date"
         app:layout_constraintVertical_bias="0.17" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/End"
         android:layout_width="120dp"
         android:layout_height="48dp"
         android:layout_marginTop="56dp"
         android:text="END"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintStart_toEndOf="@+id/Continue"
+        app:layout_constraintTop_toBottomOf="@+id/end_time" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/Continue"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="56dp"
         android:text="Continue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/end_time" />
 </androidx.constraintlayout.widget.ConstraintLayout>
