@@ -67,7 +67,7 @@ public class biddingPage extends AppCompatActivity {
         TextView textView_14 = findViewById(R.id.textView14);
         textView_14.setText(auctionName);
         TextView textView_15 = findViewById(R.id.textView15);
-        textView_15.setText(crypto);
+        textView_15.setText(cryptocoin_name);
         textView_17 = findViewById(R.id.textView17);
         textView_19 = findViewById(R.id.textView19);
         TextView bidValue = (EditText)findViewById(R.id.editTextNumber15);
