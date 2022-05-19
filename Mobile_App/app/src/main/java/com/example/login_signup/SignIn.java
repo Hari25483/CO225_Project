@@ -121,7 +121,7 @@ public class SignIn extends AppCompatActivity {
                                     startActivity(new Intent(SignIn.this,createAuction.class));
                                 }
                                 else{
-                                    startActivity(new Intent(SignIn.this,availableAuctions.class));
+                                    startActivity(new Intent(SignIn.this,Finished_Auctions.class));
                                     System.out.println("route to userpage");
                                 }
 
