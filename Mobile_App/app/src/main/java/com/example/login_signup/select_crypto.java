@@ -18,6 +18,7 @@ import org.json.simple.parser.JSONParser;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -29,6 +30,8 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
     Button start_bidding;
     TextView date;
     String cryptocoin_name;
+    ArrayList<String> cryptos = new ArrayList<String>(); // Create an ArrayList object
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_crypto);
@@ -40,6 +43,8 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
         Intent intent = getIntent();
         auctionHeading.setText(intent.getStringExtra("auctionHeading"));
         String auction_id=intent.getStringExtra("auction_id");
+        cryptos=intent.getStringArrayListExtra("cryptos");
+
         System.out.println("Auction_ID: "+ auction_id);
 //        System.out.println(intent.getStringExtra("time"));
 //        System.out.println(intent.getStringExtra("date"));
@@ -55,9 +60,14 @@ public class select_crypto extends AppCompatActivity implements AdapterView.OnIt
 
         }
 
+//        Spinner myspinner = (Spinner) findViewById(R.id.crypto_select);
         Spinner myspinner = (Spinner) findViewById(R.id.crypto_select);
-        ArrayAdapter<String> myAdaptor =new ArrayAdapter<String>(select_crypto.this,
-                android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.Crypto));
+        System.out.println(cryptos);
+//        ArrayAdapter<String> myAdaptor =new ArrayAdapter<String>(select_crypto.this,
+                ArrayAdapter<String> myAdaptor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cryptos);
+//        myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        myspinner.setAdapter(myAdaptor);
+//        myspinner.setOnItemSelectedListener(this);
         myAdaptor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myspinner.setAdapter(myAdaptor);
         myspinner.setOnItemSelectedListener(this);

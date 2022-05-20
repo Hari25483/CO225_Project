@@ -93,7 +93,7 @@
         android:layout_width="249dp"
         android:layout_height="52dp"
         android:ems="10"
-        android:hint="@string/app_name"
+        android:hint="Value"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

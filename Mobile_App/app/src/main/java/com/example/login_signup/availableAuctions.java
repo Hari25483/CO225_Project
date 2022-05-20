@@ -30,6 +30,8 @@ public class availableAuctions extends AppCompatActivity {
     List<String> date = new ArrayList<String>();
     List<String> time = new ArrayList<String>();
     List<String> auction_id = new ArrayList<String>();
+    ArrayList<String> cryptos = new ArrayList<String>(); // Create an ArrayList object
+
 
     //
 //    String auction[] = {"Auction 1", "Auction 2", "Auction 3"};
@@ -90,6 +92,7 @@ public class availableAuctions extends AppCompatActivity {
             e.printStackTrace();
         }
         super.onCreate(savedInstanceState);
+        get_data_from_firestore();
         setContentView(R.layout.activity_available_auctions);
         listView = (ListView) findViewById(R.id.CustomList);
         CustomBaseAdopter customBaseAdopter = new CustomBaseAdopter(getApplicationContext(), auction, time, date);
@@ -97,6 +100,7 @@ public class availableAuctions extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Log.i("custom","item position" + position);
 //                startActivity(new Intent(availableAuctions.this,viewAuction.class));
                 Intent intent = new Intent(getApplicationContext(),select_crypto.class);
@@ -104,8 +108,33 @@ public class availableAuctions extends AppCompatActivity {
                 intent.putExtra("auction_id",auction_id.get(position));
                 intent.putExtra("time",time.get(position));
                 intent.putExtra("date",date.get(position));
+                intent.putExtra("cryptos",cryptos);
                 startActivity(intent);
             }
         });
+    }
+
+    private void get_data_from_firestore(){
+        DocumentReference docRef = db.collection("Crypto_Currencies").document("Symbols");
+        docRef.get().
+                //Fmog6jNpnSjulWAfyJ3U
+                        addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
+                    @Override
+                    public synchronized void onComplete(@NonNull Task< DocumentSnapshot > task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                cryptos= (ArrayList<String>) document.getData().get("Symbols");
+                                System.out.println(cryptos);
+
+                            } else {
+                                Log.d(TAG, "No such document");
+                            }
+                        } else {
+                            Log.d(TAG, "get failed with ", task.getException());
+                        }
+                    }
+                });
+
     }
 }
